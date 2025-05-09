@@ -16,5 +16,29 @@ data note_metafield description {
 patch item_security id_3583 {
     target = data.item_security.description__trusted
     write = false
+    system = true
 }
 
+data item_security description__metadata_viewer {
+    accessor_item_id = data.member_group.metadata_viewer.item_id
+    item_id = data.note_metafield.description.item_id
+    read = true
+    write = false
+}
+
+patch item_security description__metadata_viewer_patch {
+    target = data.item_security.description__metadata_viewer
+    system = true
+}
+
+data item_security description__sa_full_access {
+    accessor_item_id = data.member_group.sa_full_access.item_id
+    item_id = data.note_metafield.description.item_id
+    read = true
+    write = true
+}
+
+patch item_security description__sa_full_access_patch {
+    target = data.item_security.description__sa_full_access
+    system = true
+}
