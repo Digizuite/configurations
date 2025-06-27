@@ -41,3 +41,8 @@ resource format glb_preview {
     system = true
 }
 
+patch format glb {
+    target = resource.format.glb_preview
+    name = 'GLB'
+}
+
