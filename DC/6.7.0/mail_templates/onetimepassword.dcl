@@ -2,31 +2,35 @@ resource mail_template onetimepassword {
     portal_name = ''
     language_id = resource.language.english.id
     template_name = 'one-time-password'
-    subject = 'One time passwod'
+    subject = 'One-time code'
     system = true
     body = "{{include 'html-header-start'}}
 
-<title>One time password</title>
+<title>One-time code</title>
 
 {{include 'html-header-end'}}
 
-<span class=\"preheader\">One time password requested</span>
+<span class='preheader'>One-time code requested</span>
 
 {{include 'standard-header'}}
 
+<td align='center'>
+    <table
+        style='max-width:600px; width:95%; border-radius:10px; background-color:#ffffff; text-align:center; padding:24px 16px; margin-top:40px'>
+        <tbody>
+            <tr>
+                <td style='font-size:18px'>Please enter the code below in your browser</td>
+            </tr>
+            <tr>
+                <td
+                    style='font-weight: 700; font-size: 42px; letter-spacing: 3px; padding-top: 24px; line-height: 1.2;'>{{ data.code }}</td>
+            </tr>
+            <tr>
+                <td style='font-size:18px; padding-top:24px'>This code will expire in <strong>{{ data.expiredIn }} minutes</strong> </td>
+            </tr>
+        </tbody>
+    </table>
+</td>
 
-<div align=\"center", style="background: #fff; border-radius: 10px; width: 80%; padding: 10px; margin: 0 auto;\">
-    <h2>Hello!</h2>
-    <div>To activate, please enter the code below in your browser</div>
-    <div><h1>{{ data.code }}</h1><div>
-    <div>This code will expire in <b>{{ data.expiredIn }}</b> minutes</div>
-</div>
-
-{{include 'terms-conditions-footer'}}"
-    autolink = {
-        portal_name = ''
-        language_id = resource.language.english.id
-        template_name = 'one-time-password'
-    }
+{{include 'standard-footer'}}"
 }
-
