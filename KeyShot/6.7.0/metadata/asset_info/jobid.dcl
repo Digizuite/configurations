@@ -21,19 +21,11 @@ resource string_metafield jobid {
     }	
 }
 
-resource item_security jobid__trusted {
-    accessor_item_id = data.member_group.trusted.item_id
-    item_id = resource.string_metafield.jobid.item_id
-    read = true
-    write = false
-    system = true
-}
-
 resource item_security jobid__editor_access_32 {
     accessor_item_id = data.member_group.editor_access.item_id
     item_id = resource.string_metafield.jobid.item_id
     read = true
-    write = true
+    write = false
     system = true
 }
 
@@ -41,7 +33,7 @@ resource item_security jobid__metadata_editor_36 {
     accessor_item_id = data.member_group.metadata_editor.item_id
     item_id = resource.string_metafield.jobid.item_id
     read = true
-    write = true
+    write = false
     system = true
 }
 

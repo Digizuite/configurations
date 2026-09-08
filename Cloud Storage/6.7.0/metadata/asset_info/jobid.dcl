@@ -21,14 +21,6 @@ resource string_metafield jobid {
     }	
 }
 
-resource item_security jobid__trusted {
-    accessor_item_id = data.member_group.trusted.item_id
-    item_id = resource.string_metafield.jobid.item_id
-    read = true
-    write = false
-    system = true
-}
-
 resource item_security jobid__light_user {
     accessor_item_id = data.member_group.light_user.item_id
     item_id = resource.string_metafield.jobid.item_id
